@@ -40,9 +40,8 @@ class __main__():
 
     def create_user(self):
         new_user = create_new_user(file.count_users())
-        self.create_report(new_user)
-        self.user_confirmation("Would you like to save the user? Y/N: ", False)
-        if self.user_confirmation == True:
+        self.create_report(new_user)  
+        if self.user_confirmation("Would you like to save the user? Y/N: ", False) == True:
             file.save_user(new_user)
 
     def create_report(self, user):
