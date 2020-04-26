@@ -70,7 +70,7 @@ class file_management:
             line=single_line.strip().split(',')
             exec("global user" + line[0])
             exec("user" + line[0] + " = user(" + line[0] + "," + line[1] + "," + line[2] + "," + line[3] + "," + line[4] + ")")
-            #print("user" + line[0].first_name())
+            #print name of object (user+line[0])
         self.close_file()
 
     def count_users(self):
