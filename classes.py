@@ -51,8 +51,6 @@ class __main__():
     def close_program(self):
         self.is_open = False
 
-
-
 class file_management:
     def __init__(self, file_name):
         self.file_name = file_name
@@ -67,8 +65,12 @@ class file_management:
 
     def get_users(self):
         self.open_file("r")
-        for line in self.file:
-            self.users.append(line)
+        for single_line in self.file:
+            self.users.append(single_line)
+            line=single_line.strip().split(',')
+            exec("global user" + line[0])
+            exec("user" + line[0] + " = user(" + line[0] + "," + line[1] + "," + line[2] + "," + line[3] + "," + line[4] + ")")
+            #print("user" + line[0].first_name())
         self.close_file()
 
     def count_users(self):
@@ -119,7 +121,7 @@ class new_user_report:
         return "\n\n\n\n\n\nReport-ID: " + str(self.report_id) + "\nFirst Name: " + user_object.first_name + "\nLast Name: " + user_object.last_name + "\nLiving Address: " + user_object.living_address + "\nCompany Name: " + user_object. company_name + "\n"
 
 
-class create_user_object:
+class user:
     def __init__(self, __id__, first_name, last_name, living_address, company_name):
         self.__id__ = __id__
         self.first_name = first_name
